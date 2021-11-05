@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/bot.js",
-    "dev2": "nodemon index.js"
+    "dev2": "nodemon index.js",
+    "format": "yarn prettier --write .",
+    "format:check": "yarn prettier --check ."
   },
   "repository": "git@github.com:panachainy/discord-bot-invite-role.git",
   "author": "Panachai <panachai.ny@gmail.com>",
@@ -17,6 +19,7 @@
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "prettier": "2.4.1"
   }
 }

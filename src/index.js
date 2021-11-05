@@ -8,6 +8,12 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
+console.log("config", {
+  CLIENT_ID: CLIENT_ID,
+  GUILD_ID: GUILD_ID,
+  BOT_TOKEN: BOT_TOKEN,
+});
+
 const commands = [
   {
     name: "ping",

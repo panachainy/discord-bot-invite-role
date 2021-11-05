@@ -5,11 +5,6 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 
 const util = require("util");
 
-function logDeep(message, obj) {
-  console.log(message);
-  util.inspect(obj, false, null, true);
-}
-
 function dmProcess(message) {
   console.log("this is DM ===========", Message);
   message.reply("pong");
@@ -34,14 +29,24 @@ function Init() {
     bot.connect();
   });
 
-  client.on("guildMemberAdd", async () => {
-    const channel = client.channels.cache.get("906054813798780958");
-    const member = channel.guild.member(client.user);
+  client.on("guildMemberAdd", async (guildMember) => {
+    if (guildMember.user.bot) return;
 
-    console.log("test", channel, member);
+    console.log("guildMemberAdd ===================");
 
-    if (!member.hasPermission("MANAGE_MESSAGES")) return;
-    channel.send(`Welcome to the server ${member}!`);
+    console.log("===1", guildMember.user.username);
+    console.log("===1", guildMember.user.id);
+
+    guildMember.createDM().then((channel) => {
+      const grettingMessage = `สวัสดีคุณ ${message.author.username}\
+      รบกวนป้อนเบอร์โทรศัพท์\
+      เพื่อทำการลงทะเบียน Moomall\
+      [ตัวอย่าง] 0901111111`;
+
+      channel.send(grettingMessage);
+    });
+
+    return;
   });
 
   client.on("messageCreate", async (message) => {
@@ -52,26 +57,26 @@ function Init() {
       return;
     }
 
-    message.author.createDM().then((dm) => {
-      dm.send(`สวัสดีคุณ ${message.author.username}\
-      รบกวนป้อนเบอร์โทรศัพท\
-      เพื่อทำการลงทะเบียน Moomall\
-      [ตัวอย่าง] 0901111111`);
+    //   message.author.createDM().then((dm) => {
+    //     dm.send(`สวัสดีคุณ ${message.author.username}\
+    //     รบกวนป้อนเบอร์โทรศัพท\
+    //     เพื่อทำการลงทะเบียน Moomall\
+    //     [ตัวอย่าง] 0901111111`);
 
-      console.log("dm done");
-    });
+    //     console.log("dm done");
+    //   });
 
-    if (message.content === "ping") {
-      console.log("ping");
-      message.reply("pong");
-    }
+    //   if (message.content === "ping") {
+    //     console.log("ping");
+    //     message.reply("pong");
+    //   }
 
-    message.reply(
-      `สวัสดีคุณ ${message.author.username}\n` +
-        "รบกวนป้อนเบอร์โทรศัพท์\n" +
-        "เพื่อทำการลงทะเบียน Moomall\n" +
-        "[ตัวอย่าง] 0901111111"
-    );
+    //   message.reply(
+    //     `สวัสดีคุณ ${message.author.username}\n` +
+    //       "รบกวนป้อนเบอร์โทรศัพท์\n" +
+    //       "เพื่อทำการลงทะเบียน Moomall\n" +
+    //       "[ตัวอย่าง] 0901111111"
+    //   );
   });
 
   client.login(BOT_TOKEN);

@@ -36,30 +36,28 @@ function Init() {
       return;
     }
 
-    message.author.createDM().then((dm) => {
-      dm.send(`สวัสดีคุณ ${message.author.username}
-      รบกวนป้อนเบอร์โทรศัพท์ เพื่อทำการลงทะเบียน Moomall`);
-      console.log("dm done");
-    });
+    // message.author.createDM().then((dm) => {
+    //   dm.send(`สวัสดีคุณ ${message.author.username}
+    //   รบกวนป้อนเบอร์โทรศัพท์ เพื่อทำการลงทะเบียน Moomall`);
+    //   console.log("dm done");
+    // });
 
     if (message.content === "ping") {
       console.log("ping");
       message.reply("pong");
     }
 
-    // const dmLogEmbed = new MessageEmbed()
-    //   .setColor("RANDOM")
-    //   .setTitle(`${message.author.tag} dmed the bot and said: `)
-    //   .setDescription(message.content)
-    //   .setFooter(`User's id: ${message.author.id}`);
+    const dmLogEmbed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setTitle(`${message.author.tag} dmed the bot and said: `)
+      .setDescription(message.content)
+      .setFooter(`User's id: ${message.author.id}`);
     // dmLogEmbed.setImage(
     //   "https://stg-salepage.moomall.com/api/moomall/images/logo.png"
     // );
 
-    // message.reply(dmLogEmbed);
+    message.reply(dmLogEmbed);
   });
-
-  client.on("");
 
   client.login(BOT_TOKEN);
 }

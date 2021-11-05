@@ -1,0 +1,11 @@
+{
+  "name": "discord-bot-invite-role",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:panachainy/discord-bot-invite-role.git",
+  "author": "Panachai <panachai.ny@gmail.com>",
+  "license": "MIT"
+}

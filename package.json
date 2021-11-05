@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/bot.js",
     "dev": "nodemon ./src/bot.js",
     "dev2": "nodemon index.js",
     "format": "yarn prettier --write .",

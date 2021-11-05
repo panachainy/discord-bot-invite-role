@@ -46,17 +46,6 @@ function Init() {
       console.log("ping");
       message.reply("pong");
     }
-
-    const dmLogEmbed = new MessageEmbed()
-      .setColor("RANDOM")
-      .setTitle(`${message.author.tag} dmed the bot and said: `)
-      .setDescription(message.content)
-      .setFooter(`User's id: ${message.author.id}`);
-    // dmLogEmbed.setImage(
-    //   "https://stg-salepage.moomall.com/api/moomall/images/logo.png"
-    // );
-
-    message.reply(dmLogEmbed);
   });
 
   client.login(BOT_TOKEN);

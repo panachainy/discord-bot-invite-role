@@ -3,7 +3,12 @@ const { Client, Intents, MessageEmbed } = require("discord.js");
 require("dotenv").config();
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
-// const util = require("util");
+const util = require("util");
+
+function logDeep(message, obj) {
+  console.log(message);
+  util.inspect(obj, false, null, true);
+}
 
 function dmProcess(message) {
   console.log("this is DM ===========", Message);

@@ -1,17 +1,17 @@
-const { Client, Intents, MessageEmbed } = require("discord.js");
+import DiscordJS, { Intents } from "discord.js";
+import "dotenv/config";
 
-require("dotenv").config();
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
-const util = require("util");
+// const util = require("util");
 
-function dmProcess(message) {
+function dmProcess(message: DiscordJS.Message<boolean>) {
   console.log("this is DM ===========", message);
   message.reply("pong");
 }
 
 function Init() {
-  const client = new Client({
+  const client = new DiscordJS.Client({
     intents: [
       Intents.FLAGS.GUILDS,
       Intents.FLAGS.GUILD_MESSAGES,
@@ -21,12 +21,7 @@ function Init() {
   });
 
   client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-  });
-
-  client.on("disconnect", function (msg, code) {
-    if (code === 0) return console.error(msg);
-    bot.connect();
+    console.log(`Logged in as ${client.user?.tag}!`);
   });
 
   client.on("guildMemberAdd", async (guildMember) => {
@@ -38,7 +33,7 @@ function Init() {
     console.log("===1", guildMember.user.id);
 
     guildMember.createDM().then((channel) => {
-      const grettingMessage = `สวัสดีคุณ ${message.author.username}\
+      const grettingMessage = `สวัสดีคุณ ${guildMember.user.username}\
       รบกวนป้อนเบอร์โทรศัพท์\
       เพื่อทำการลงทะเบียน Moomall\
       [ตัวอย่าง] 0901111111`;

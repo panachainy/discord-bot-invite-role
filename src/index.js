@@ -2,7 +2,7 @@
 require("dotenv").config();
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const bot = require("./bot.js");
+const bot = require("./bot-tmp.js");
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;

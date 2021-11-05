@@ -66,12 +66,7 @@ function Init() {
     //     message.reply("pong");
     //   }
 
-    //   message.reply(
-    //     `สวัสดีคุณ ${message.author.username}\n` +
-    //       "รบกวนป้อนเบอร์โทรศัพท์\n" +
-    //       "เพื่อทำการลงทะเบียน Moomall\n" +
-    //       "[ตัวอย่าง] 0901111111"
-    //   );
+    message.reply("just test bot");
   });
 
   client.login(BOT_TOKEN);

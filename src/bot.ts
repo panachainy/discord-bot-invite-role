@@ -6,7 +6,7 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 const util = require("util");
 
 function dmProcess(message) {
-  console.log("this is DM ===========", Message);
+  console.log("this is DM ===========", message);
   message.reply("pong");
 }
 

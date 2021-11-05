@@ -1,14 +1,8 @@
 import DiscordJS, { Intents } from "discord.js";
 import "dotenv/config";
+import { dmMessage } from "./services/dm";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
-
-// const util = require("util");
-
-function dmProcess(message: DiscordJS.Message<boolean>) {
-  console.log("this is DM ===========", message);
-  message.reply("pong");
-}
 
 function Init() {
   const client = new DiscordJS.Client({
@@ -48,7 +42,7 @@ function Init() {
     if (message.author.bot) return;
 
     if (message.channel.type === "DM") {
-      dmProcess(message);
+      dmMessage(message);
       return;
     }
 

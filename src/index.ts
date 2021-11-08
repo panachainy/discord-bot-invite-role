@@ -29,7 +29,7 @@ function Init() {
     guildMember.createDM().then((channel) => {
       const grettingMessage = `สวัสดีคุณ ${guildMember.user.username}\
       รบกวนป้อนเบอร์โทรศัพท์\
-      เพื่อทำการลงทะเบียน Moomall\
+      เพื่อทำการลงทะเบียน xxxxxxxxxxx\
       [ตัวอย่าง] 0901111111`;
 
       channel.send(grettingMessage);
@@ -45,20 +45,6 @@ function Init() {
       dmMessage(message);
       return;
     }
-
-    //   message.author.createDM().then((dm) => {
-    //     dm.send(`สวัสดีคุณ ${message.author.username}\
-    //     รบกวนป้อนเบอร์โทรศัพท\
-    //     เพื่อทำการลงทะเบียน Moomall\
-    //     [ตัวอย่าง] 0901111111`);
-
-    //     console.log("dm done");
-    //   });
-
-    //   if (message.content === "ping") {
-    //     console.log("ping");
-    //     message.reply("pong");
-    //   }
 
     message.reply("just test bot");
   });
